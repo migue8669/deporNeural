@@ -1,0 +1,134 @@
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.5/jscolor.min.js"
+    ></script>
+    <script src="https://unpkg.com/brain.js"></script>
+    <script src="modelo.js"></script>
+
+  </head>
+
+  <body>
+    <h1>Resultado</h1>
+    <div id="salida">xxxx</div>
+
+    <script>
+      var aux=new Array();
+      var aux2=new Array();
+      var sites=new Array();
+      var odds=new Array();
+      var h2h=new Array();
+      var odds2=new Array();
+      var odds3=new Array();
+      var odds4=new Array();
+
+      var h2h2=new Array();
+      var aux1=new Array();
+
+      var contadorSites=0;
+      var index=0;
+      var index1=0;
+      var index2=0;
+      var index3=0;
+      var index4=0;
+      var index5=0;
+      var index6=0;
+
+      
+      const apiUrl =
+        "https://api.the-odds-api.com/v3/odds/?sport=soccer_epl&region=uk&apiKey=25f91c56627216c99c319a9775bf6d1f";
+      async function getapi(url) {
+        // Storing response
+        const response = await fetch(url);
+
+        // Storing data in form of JSON
+        var data = await response.json();
+        console.log(data.data);
+        aux=data.data;
+        return await data.data;
+
+        // if (response) {
+        //     hideloader();
+        // }
+        //   show(data.data);
+      }
+      getapi(apiUrl);
+      // Calling that async function
+      setTimeout(function() {
+
+ // for ( index = 0; index < aux.length; index++) {
+
+
+
+
+      //  Object.keys(aux).forEach(function (key){
+      //     (key,aux1.push(aux[key]))
+      //   })
+        Object.keys(aux).forEach(function (key){
+          (key,odds.push(aux[key].sites))
+        })
+         for ( index = 0; index < odds.length; index++) {
+           for(index1=0; index1<odds.length;index1++){
+
+           
+  console.log(odds)  
+//console.log(index2)
+if(odds[index][index1]!=undefined){
+odds2.push(odds[index][index1])
+//console.log(h2h)
+}}}
+         
+          Object.keys(odds2).forEach(function (key){
+          (key,odds3.push(odds2[key].odds))})
+
+         
+          Object.keys(odds3).forEach(function (key){
+          (key,h2h.push( odds3[key].h2h))})
+
+  
+       myDisplayer(h2h);
+       }, 3000);
+
+      function myDisplayer(some) {
+              /* Red */
+
+      //   var net = new brain.recurrent.LSTMTimeStep();
+      // // /* Entrenamiento */
+      // net.train([{input:[3.33,2.25,3.38],output:[2.25]},
+      //   {input:[5.33,2.25,0.38],output:[0.38]},
+      //   {input:[2.33,3.25,1.38],output:[1.38]}])
+      // var result=net.run( some );
+      // console.log(result)
+
+  document.getElementById("salida").innerHTML = JSON.stringify(some);
+}
+      // }
+      /* Red */
+    //  var net = new brain.recurrent.LSTMTimeStep();
+
+      // /* Entrenamiento */
+      // net.train( [
+      // 	[1,2,3,4,5],
+      // 	[6,7,8,9,10],
+      // 	[11,12,13,14,15],
+      // 	] );
+//       let promesa= new Promise (function(resolve,reject) {
+ 
+// // setTimeout(function() {
+//   getapi(apiUrl);
+
+//  //},10000);
+
+
+// })
+   //    document.getElementById("salida")=
+      // /* Predicción */
+      // var result=net.run( [1,2,3] );
+      var result = "";
+ //     document.getElementById("salida").innerHTML = promesa.then(function(value){myDisplayer(value);});
+
+   //   document.getElementById("salida").innerHTML = getapi(apiUrl);
+    </script>
+  </body>
+</html>
